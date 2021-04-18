@@ -1,0 +1,33 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00b7ff;
+}
+
+.start-meny {
+  max-width: 900px;
+  border: 1px solid black;
+  height: 500px;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.input-fields {
+  width: 300px;
+  margin: 0 10px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.input-fields div {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}

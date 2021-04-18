@@ -144,7 +144,7 @@ function loadLoginPage() {
 }
 
 function loadSettingsPage() {
-  let user = JSON.parse(localStorage.getItem("loggedInUser"));
+  let loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
   body.innerHTML = `
     <h1>Inställningar</h1>
     <p>Välkommen <strong>${user.email}</strong>!</p>
@@ -162,10 +162,10 @@ function loadSettingsPage() {
     </div>`;
 
   let userSettings = {
-    id: user.id,
+    id: loggedInUser.id,
   };
 
-  if (user.subscribed) {
+  if (loggedInUser.subscribed) {
     document.getElementById("newsletter").checked = true;
     userSettings.subscribed = true;
   }

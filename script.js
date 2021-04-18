@@ -28,21 +28,18 @@ function loadLoginPage() {
                 name="email"
                 id="email-reg"
                 placeholder="example@site.com"
-                value="hello@fds.com"
                 required
               />
               <input
                 type="password"
                 name="password"
                 id="password-reg"
-                value="fs"
                 required
               />
               <input
                 type="password"
                 name="password-confirm"
                 id="password-confirm"
-                value="fss"
                 required
               />
             </div>
@@ -65,14 +62,12 @@ function loadLoginPage() {
                 name="email"
                 id="email-login"
                 placeholder="example@site.com"
-                value="emil@gmail.com"
                 required
               />
               <input
                 type="password"
                 name="password"
                 id="password-login"
-                value="test"
                 required
               />
             </div>

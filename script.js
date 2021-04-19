@@ -21,6 +21,7 @@ function loadLoginPage() {
               <label for="email">Email</label>
               <label for="password">Lösenord</label>
               <label for="password-confirm">Bekräfta lösenord</label>
+              <label for="subscribe">Prenumerera</label>
             </div>
             <div>
               <input
@@ -41,6 +42,11 @@ function loadLoginPage() {
                 name="password-confirm"
                 id="password-confirm"
                 required
+              />
+              <input
+                type="checkbox"
+                name="subscribe"
+                id="subscribe"
               />
             </div>
           </div>
@@ -89,6 +95,7 @@ function loadLoginPage() {
       let newUser = {
         email: document.getElementById("email-reg").value,
         password: document.getElementById("password-reg").value,
+        subscribed: document.getElementById("subscribe").checked,
       };
 
       fetch("http://localhost:3000/users/register", {

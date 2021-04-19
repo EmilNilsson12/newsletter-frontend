@@ -142,7 +142,7 @@ function loadSettingsPage() {
   let loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
   body.innerHTML = `
     <h1>Inställningar</h1>
-    <p>Välkommen <strong>${user.email}</strong>!</p>
+    <p>Välkommen <strong>${loggedInUser.email}</strong>!</p>
     <form id="user-settings" onsubmit="event.preventDefault()">
       <h2>Vill du prenumerera på vårt nyhetsbrev?</h2>
       <div>

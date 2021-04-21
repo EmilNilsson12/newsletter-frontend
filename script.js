@@ -113,6 +113,17 @@ function loadLoginPage() {
             document.getElementById(
               "feedback-reg"
             ).innerHTML = `The user "${data.email}" is now registered!`;
+
+            // Fill login-form with values from reg-form
+            document.getElementById(
+              "email-login"
+            ).value = document.getElementById("email-reg").value;
+            document.getElementById(
+              "password-login"
+            ).value = document.getElementById("password-reg").value;
+
+            // Call login function
+            login();
           }
         });
     } else {
@@ -121,11 +132,13 @@ function loadLoginPage() {
     }
   });
 
-  loginForm.addEventListener("submit", () => {
+  loginForm.addEventListener("submit", login);
+  function login() {
     let allegedUser = {
       email: document.getElementById("email-login").value,
       password: document.getElementById("password-login").value,
     };
+
     fetch("http://localhost:3000/users/login", {
       method: "POST",
       headers: {
@@ -142,7 +155,7 @@ function loadLoginPage() {
           loadSettingsPage();
         }
       });
-  });
+  }
 }
 
 function loadSettingsPage() {

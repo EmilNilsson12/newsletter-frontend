@@ -98,7 +98,7 @@ function loadLoginPage() {
         subscribed: document.getElementById("subscribe").checked,
       };
 
-      fetch("http://localhost:3000/users/register", {
+      fetch("https://emils-mi-newsletter.herokuapp.com/users/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -139,7 +139,7 @@ function loadLoginPage() {
       password: document.getElementById("password-login").value,
     };
 
-    fetch("http://localhost:3000/users/login", {
+    fetch("https://emils-mi-newsletter.herokuapp.com/users/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -188,7 +188,7 @@ function loadSettingsPage() {
   document.getElementById("user-settings").addEventListener("submit", () => {
     userSettings.subscribed = document.getElementById("newsletter").checked;
     console.log(userSettings);
-    fetch(`http://localhost:3000/users/settings`, {
+    fetch(`https://emils-mi-newsletter.herokuapp.com/users/settings`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -170,6 +170,8 @@ function loadSettingsPage() {
         <input type="checkbox" name="newsletter" id="newsletter"/>
       <div>
         <input type="submit" value="Spara dessa inställningar">
+        <span id="settings-feedback">
+        </span>
       </div>
     </form>
     <div>
@@ -186,6 +188,7 @@ function loadSettingsPage() {
   }
 
   document.getElementById("user-settings").addEventListener("submit", () => {
+    document.getElementById("settings-feedback").innerHTML = "";
     userSettings.subscribed = document.getElementById("newsletter").checked;
     console.log(userSettings);
     fetch(`https://emils-mi-newsletter.herokuapp.com/users/settings`, {
@@ -194,7 +197,13 @@ function loadSettingsPage() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(userSettings),
-    });
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        document.getElementById("settings-feedback").innerHTML =
+          "Settings saved!";
+      });
   });
 
   document.getElementById("logout").addEventListener("click", () => {

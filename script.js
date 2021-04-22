@@ -184,7 +184,6 @@ function loadSettingsPage() {
 
   if (loggedInUser.subscribed) {
     document.getElementById("newsletter").checked = true;
-    userSettings.subscribed = true;
   }
 
   document.getElementById("user-settings").addEventListener("submit", () => {

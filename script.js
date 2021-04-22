@@ -190,7 +190,6 @@ function loadSettingsPage() {
   document.getElementById("user-settings").addEventListener("submit", () => {
     document.getElementById("settings-feedback").innerHTML = "";
     userSettings.subscribed = document.getElementById("newsletter").checked;
-    console.log(userSettings);
     fetch(`https://emils-mi-newsletter.herokuapp.com/users/settings`, {
       method: "POST",
       headers: {
@@ -200,7 +199,6 @@ function loadSettingsPage() {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         document.getElementById("settings-feedback").innerHTML =
           "Settings saved!";
       });
@@ -209,6 +207,5 @@ function loadSettingsPage() {
   document.getElementById("logout").addEventListener("click", () => {
     localStorage.clear();
     loadLoginPage();
-    console.clear();
   });
 }

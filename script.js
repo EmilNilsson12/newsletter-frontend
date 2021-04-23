@@ -1,7 +1,7 @@
-const body = document.querySelector("body");
+const body = document.querySelector('body');
 
 // Check if someone is logged in
-let aUserIsLoggedIn = localStorage.getItem("loggedInUser");
+let aUserIsLoggedIn = localStorage.getItem('loggedInUser');
 if (aUserIsLoggedIn) {
   loadSettingsPage();
 } else {
@@ -84,74 +84,73 @@ function loadLoginPage() {
       </div>
     </nav>`;
 
-  const regForm = document.getElementById("register-form");
-  const loginForm = document.getElementById("login-form");
+  const regForm = document.getElementById('register-form');
+  const loginForm = document.getElementById('login-form');
 
-  regForm.addEventListener("submit", () => {
+  regForm.addEventListener('submit', () => {
     if (
-      document.getElementById("password-reg").value ===
-      document.getElementById("password-confirm").value
+      document.getElementById('password-reg').value ===
+      document.getElementById('password-confirm').value
     ) {
       let newUser = {
-        email: document.getElementById("email-reg").value,
-        password: document.getElementById("password-reg").value,
-        subscribed: document.getElementById("subscribe").checked,
+        email: document.getElementById('email-reg').value,
+        password: document.getElementById('password-reg').value,
+        subscribed: document.getElementById('subscribe').checked,
       };
 
-      fetch("https://emils-mi-newsletter.herokuapp.com/users/register", {
-        method: "POST",
+      fetch('https://emils-mi-newsletter.herokuapp.com/users/register', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(newUser),
       })
         .then((res) => res.json())
         .then((data) => {
-          if (typeof data == "string") {
-            document.getElementById("feedback-reg").innerHTML = data;
+          if (typeof data == 'string') {
+            document.getElementById('feedback-reg').innerHTML = data;
           } else {
             document.getElementById(
-              "feedback-reg"
+              'feedback-reg'
             ).innerHTML = `The user "${data.email}" is now registered!`;
 
             // Fill login-form with values from reg-form
-            document.getElementById(
-              "email-login"
-            ).value = document.getElementById("email-reg").value;
-            document.getElementById(
-              "password-login"
-            ).value = document.getElementById("password-reg").value;
+            document.getElementById('email-login').value = document.getElementById(
+              'email-reg'
+            ).value;
+            document.getElementById('password-login').value = document.getElementById(
+              'password-reg'
+            ).value;
 
             // Call login function
             login();
           }
         });
     } else {
-      document.getElementById("feedback-reg").innerHTML =
-        "Passwords have to match!";
+      document.getElementById('feedback-reg').innerHTML = 'Passwords have to match!';
     }
   });
 
-  loginForm.addEventListener("submit", login);
+  loginForm.addEventListener('submit', login);
   function login() {
     let allegedUser = {
-      email: document.getElementById("email-login").value,
-      password: document.getElementById("password-login").value,
+      email: document.getElementById('email-login').value,
+      password: document.getElementById('password-login').value,
     };
 
-    fetch("https://emils-mi-newsletter.herokuapp.com/users/login", {
-      method: "POST",
+    fetch('https://emils-mi-newsletter.herokuapp.com/users/login', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(allegedUser),
     })
       .then((res) => res.json())
       .then((data) => {
-        if (typeof data == "string") {
-          document.getElementById("feedback-login").innerHTML = data;
+        if (typeof data == 'string') {
+          document.getElementById('feedback-login').innerHTML = data;
         } else {
-          localStorage.setItem("loggedInUser", JSON.stringify(data));
+          localStorage.setItem('loggedInUser', JSON.stringify(data));
           loadSettingsPage();
         }
       });
@@ -159,7 +158,7 @@ function loadLoginPage() {
 }
 
 function loadSettingsPage() {
-  let loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+  let loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
   body.innerHTML = `
     <h1>Inställningar</h1>
     <p>Välkommen <strong>${loggedInUser.email}</strong>!</p>
@@ -183,27 +182,26 @@ function loadSettingsPage() {
   };
 
   if (loggedInUser.subscribed) {
-    document.getElementById("newsletter").checked = true;
+    document.getElementById('newsletter').checked = true;
   }
 
-  document.getElementById("user-settings").addEventListener("submit", () => {
-    document.getElementById("settings-feedback").innerHTML = "";
-    userSettings.subscribed = document.getElementById("newsletter").checked;
-    fetch(`https://emils-mi-newsletter.herokuapp.com/users/settings`, {
-      method: "POST",
+  document.getElementById('user-settings').addEventListener('submit', () => {
+    document.getElementById('settings-feedback').innerHTML = '';
+    userSettings.subscribed = document.getElementById('newsletter').checked;
+    fetch('https://emils-mi-newsletter.herokuapp.com/users/settings', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(userSettings),
     })
       .then((response) => response.json())
       .then((data) => {
-        document.getElementById("settings-feedback").innerHTML =
-          "Settings saved!";
+        document.getElementById('settings-feedback').innerHTML = 'Settings saved!';
       });
   });
 
-  document.getElementById("logout").addEventListener("click", () => {
+  document.getElementById('logout').addEventListener('click', () => {
     localStorage.clear();
     loadLoginPage();
   });

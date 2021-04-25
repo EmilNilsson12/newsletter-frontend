@@ -1,5 +1,17 @@
 const body = document.querySelector('body');
 
+const footerElement = `
+  <footer>
+    <h4>Powered by</h4>
+    <p>
+      <a href="https://github.com/EmilNilsson12/newsletter-backend"><img height="15" src="./imgs/heroku-logo.png"></a>
+    </p>
+    <p>
+      <a href="https://github.com/EmilNilsson12/newsletter-frontend"><img height="15" src="./imgs/github-pages-logo.png"></a>
+    </p>
+  </footer>
+  `;
+
 // Check if someone is logged in
 let aUserIsLoggedIn = localStorage.getItem('loggedInUser');
 if (aUserIsLoggedIn) {
@@ -10,9 +22,12 @@ if (aUserIsLoggedIn) {
 
 function loadLoginPage() {
   body.innerHTML = `
-    <h1>Nyhetsbrevtjänsten</h1>
-    <p>Välkommen till Nyhetsbrevtjänsten</p>
-    <nav class="start-meny">
+    <header>
+      <h1>Nyhetsbrevtjänsten</h1>
+      <p>Välkommen till Nyhetsbrevtjänsten</p>
+      <p>Vårt mål är att samla alla dina prenumerationer på ett ställe. Våran <strong>intuitiva inställningspanel</strong> gör det enklare än någonsin att se över alla dina inställningar på en gång.</p>
+    </header>
+    <main id="guest-page">
       <div>
         <h2>Registera dig:</h2>
         <form id="register-form" onsubmit="event.preventDefault()">
@@ -82,7 +97,8 @@ function loadLoginPage() {
           <div id="feedback-login"></div>
         </form>
       </div>
-    </nav>`;
+    </main>
+    ${footerElement}`;
 
   const regForm = document.getElementById('register-form');
   const loginForm = document.getElementById('login-form');
@@ -160,22 +176,28 @@ function loadLoginPage() {
 function loadSettingsPage() {
   let loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
   body.innerHTML = `
-    <h1>Inställningar</h1>
-    <p>Välkommen <strong>${loggedInUser.email}</strong>!</p>
-    <form id="user-settings" onsubmit="event.preventDefault()">
-      <h2>Vill du prenumerera på vårt nyhetsbrev?</h2>
+    <header>
+      <h1>Inställningar</h1>
+      <p>Välkommen <strong>${loggedInUser.email}</strong>!</p>
+    </header>
+    <main id="settings-page">
+      <form id="user-settings" onsubmit="event.preventDefault()">
+        <h2>Vill du prenumerera på vårt nyhetsbrev?</h2>
+        <div>
+          <label for="newsletter">Prenumererad</label>
+          <input type="checkbox" name="newsletter" id="newsletter"/>
+        </div>
+        <div>
+          <input type="submit" value="Spara dessa inställningar">
+          <span id="settings-feedback">
+          </span>
+        </div>
+      </form>
       <div>
-        <label for="newsletter">Prenumererad</label>
-        <input type="checkbox" name="newsletter" id="newsletter"/>
-      <div>
-        <input type="submit" value="Spara dessa inställningar">
-        <span id="settings-feedback">
-        </span>
+        <button id="logout">Logga ut</button>
       </div>
-    </form>
-    <div>
-      <button id="logout">Logga ut</button>
-    </div>`;
+    </main>
+    ${footerElement}`;
 
   let userSettings = {
     id: loggedInUser.id,

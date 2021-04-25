@@ -141,8 +141,14 @@ function loadLoginPage() {
               'password-reg'
             ).value;
 
-            // Call login function
-            login();
+            // Give user feedback that the login is in fact initiated
+            setTimeout(() => {
+              document.getElementById('feedback-reg').innerHTML +=
+                '<br />You will now be logged in';
+            }, 500);
+
+            // Call login function after a delay so the user has time to notice the feedback-text
+            setTimeout(login, 2000);
           }
         });
     } else {

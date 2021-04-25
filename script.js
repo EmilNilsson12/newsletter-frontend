@@ -4,10 +4,13 @@ const footerElement = `
   <footer>
     <h4>Powered by</h4>
     <p>
-      <a href="https://github.com/EmilNilsson12/newsletter-backend"><img height="15" src="./imgs/heroku-logo.png"></a>
+      <a href="https://github.com/EmilNilsson12/newsletter-backend"><img width="100" src="./imgs/heroku-logo.png"></a>
     </p>
     <p>
-      <a href="https://github.com/EmilNilsson12/newsletter-frontend"><img height="15" src="./imgs/github-pages-logo.png"></a>
+      <a href="https://github.com/EmilNilsson12/newsletter-backend"><img width="100" src="./imgs/mongoDB_logo.png"></a>
+    </p>
+    <p>
+      <a href="https://github.com/EmilNilsson12/newsletter-frontend"><img width="100" src="./imgs/github-pages-logo.png"></a>
     </p>
   </footer>
   `;

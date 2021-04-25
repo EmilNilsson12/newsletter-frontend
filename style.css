@@ -1,11 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Zen+Dots&family=Open+Sans&display=swap');
-@import url('https://fonts.googleapis.com/css2?fdisplay=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Roboto&family=Zen+Dots&family=Open+Sans&display=swap');
 
 body {
-  font: 14px 'Open Sans', sans-serif;
   width: 100%;
   margin: 0;
   background-color: #c4fdff;
+  font-family: 'Roboto', sans-serif;
 }
 
 header,
@@ -16,21 +15,31 @@ footer {
 
 header {
   margin-top: 10px;
-  padding: 10px 0;
-  margin-bottom: 10%;
+  margin-bottom: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
+
 header p {
-  width: 60%;
+  width: 90%;
+}
+
+h1 {
+  font-family: 'Gloria Hallelujah', cursive;
+  font-size: 40px;
+  margin: 0;
+  margin-bottom: 20px;
 }
 
 h1,
 p {
-  font-family: 'Roboto', sans-serif;
   text-align: center;
+}
+
+main {
+  font-size: 14px;
 }
 
 main#guest-page {

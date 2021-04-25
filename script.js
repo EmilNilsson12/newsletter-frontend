@@ -228,7 +228,7 @@ function loadSettingsPage() {
     })
       .then((response) => response.json())
       .then((data) => {
-        document.getElementById('settings-feedback').innerHTML = 'Settings saved!';
+        document.getElementById('settings-feedback').innerHTML = 'Dina inställningar är sparade!';
       });
   });
 

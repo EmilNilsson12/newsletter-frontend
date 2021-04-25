@@ -4,13 +4,13 @@ This repo is the front-end part of a project.
 
 The back-end part is found in this repo: https://github.com/EmilNilsson12/newsletter-backend
 
-This repo is the user-facing site for a service which lets users register their email and recieve a newsletter.
+This repo is the user-facing site for a newsletter-service.
 
-The user can choose to subscribe immediatly upon registration. They can always toggle on or off in the settings page after logging in.
+- Upon registration the user can opt-in to subscribe by checking the box in the registration-form.
 
-This repo is structured as a headless-app.
+- The user is logged in directly after a successful registration.
 
-A user can sign up/log in here: https://emilnilsson12.github.io/newsletter-frontend/
+- The user can always toggle their newsletter subscription in the settings page.
 
 # Contributing
 

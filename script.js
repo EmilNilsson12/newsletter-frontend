@@ -7,7 +7,7 @@ const footerElement = `
       <a href="https://github.com/EmilNilsson12/newsletter-backend"><img width="100" src="./imgs/heroku-logo_200pxh.png"></a>
     </p>
     <p>
-      <a href="https://github.com/EmilNilsson12/newsletter-backend"><img width="100" src="./imgs/mongoDB_logo_200pxh.png"></a>
+      <a href="https://github.com/EmilNilsson12/newsletter-backend"><img width="100" src="./imgs/mongoDB-logo_200pxh.png"></a>
     </p>
     <p>
       <a href="https://github.com/EmilNilsson12/newsletter-frontend"><img width="100" src="./imgs/github-pages-logo.png"></a>
